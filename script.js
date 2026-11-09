@@ -7,7 +7,7 @@ $(function () { // Makes sure that your function is called once all the DOM elem
   $('.treat-button').click(clickedTreatButton);
   $('.play-button').click(clickedPlayButton);
   $('.exercise-button').click(clickedExerciseButton);
-
+  $('.charge-button').click(clickedChargedButton);
 
 })
 
@@ -107,15 +107,40 @@ function gifPlay_exercise(gifPath){
 }
 
 
+//forth button gif
+
+var gifPlaying = false; //checks if the gif is playing
+
+function gifPlay_atomic(gifPath){
 
 
+  if(gifPlaying) return; //if the gif is playing, let it finish. There is no restart
+
+  gifPlaying = true; //says to the complier that the gif is playing
+
+  $('.pet-image').attr('src','images/atomicb.gif'+ '?' + Date.now()); //sets the gif again 
+  $('.pet-image').delay(2000).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+
+    // extended the time delay for this gif..
+
+
+    $(this).attr('src', 'images/pet.webp'); //swaps back to the pet image
+
+    $(this).show(); //sends back the image to the browser
+
+    gifPlaying = false; // check that says the gif is playing. The next click can restart it. 
+
+
+  });
+
+}
 
 
 
 
 
 // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
-var pet_info = { name: "Godzilla", weight: 164, happiness: 50 }; // changed from string to number
+var pet_info = { name: "Godzilla", weight: 164, happiness: 50, charge: 0 }; // changed from string to number
 
 function clickedTreatButton() {
   // Increase pet happiness
@@ -152,8 +177,25 @@ function clickedExerciseButton() {
 }
 
 
-function clickedchargebutton
 
+function clickedChargedButton(){
+
+  pet_info.charge += 10
+
+  //make 100 cap and stay at 100... when it hits 100 make a new button appear and when clicked it fires the beam and resets to 0
+  
+
+  if(pet_info.charge == 100){
+
+  gifPlay_atomic('image/atomicb.gif');
+
+  pet_info.charge = 0;
+
+  }
+
+  checkAndUpdatePetInfoInHtml();
+
+}
 
 
 function checkAndUpdatePetInfoInHtml() {
@@ -170,4 +212,8 @@ function updatePetInfoInHtml() {
   $('.name').text(pet_info['name']);
   $('.weight').text(pet_info['weight']);
   $('.happiness').text(pet_info['happiness']);
+  $('.charge').text(pet_info['charge']);
+
+
 }
+
