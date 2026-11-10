@@ -50,6 +50,7 @@ function gifPlay(gifPath){
 }
 
 
+
 //Gif for play 
 
 gifPlaying = false; //checks if the gif is playing
