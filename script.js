@@ -11,7 +11,7 @@ $(function () { // Makes sure that your function is called once all the DOM elem
   $('.fire-button').click(clickedfireButton);
 })
 
-
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Gif implementation. I implemented a img/gif switch when a button is clicked. I researched this topic from https://stackoverflow.com/questions/1977557/jquery-fade-to-new-image
 // I'm placing it here to then call in the function for treat button. 
 
@@ -52,7 +52,7 @@ function gifPlay(gifPath){
 
 //Gif for play 
 
-var gifPlaying = false; //checks if the gif is playing
+gifPlaying = false; //checks if the gif is playing
 
 function gifPlay_play (gifPath){
 
@@ -80,7 +80,7 @@ function gifPlay_play (gifPath){
 //exercise gif
 
 
-var gifPlaying = false; //checks if the gif is playing
+gifPlaying = false; //checks if the gif is playing
 
 function gifPlay_exercise(gifPath){
 
@@ -90,7 +90,7 @@ function gifPlay_exercise(gifPath){
   gifPlaying = true; //says to the complier that the gif is playing
 
   $('.pet-image').attr('src','images/exercise.gif'+ '?' + Date.now()); //sets the gif again 
-  $('.pet-image').delay(5000).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+  $('.pet-image').delay(4000).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
 
     // extended the time delay for this gif..
 
@@ -109,7 +109,7 @@ function gifPlay_exercise(gifPath){
 
 //forth button gif
 
-var gifPlaying = false; //checks if the gif is playing
+ gifPlaying = false; //checks if the gif is playing
 
 function gifPlay_atomic(gifPath){
 
@@ -136,8 +136,36 @@ function gifPlay_atomic(gifPath){
 }
 
 
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+
+GODZILLA COMMENTS ARRAY & RANDOMIZER SECTION
+
+This section declares arrays with comments for each array. Attached will be a "randomizer" that will randomly pick a comment from each button set. 
+
+Randomizer researched from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+*/ 
 
 
+var tComments = ["Yummy! I love buildings!", "A piece of Ghidorah, YUM!", "Wait a minute... this had vegetables","This Tokyo roll was amazing!"]; 
+var pComments = ["I wonder if Minilla wants to play with me", "How far can I throw this car?", "look at my silly dance!", "I should attack japan again..."];
+var eComments = ["3 million and one push up..... 3 million and 2..", "I gotta get stronger than King Kong...", "a light 3 swims around the world for today", "I hope I can spar with Jet Jaguar today"];
+var cComment = ["Charging Atomic Breath ROOOOAR"]; // no selection for this var
+var fComments =  ["ROOOOOOOOOOOOOOOOOOOAAAAAAR *BLAST*", "BOOOOOOOOOOOOOOOOOOOOOOOOOM", "*VAPORIZES EVERYTHING*", "FOOOOOOOOOOOOOOOOOOOOSH"]; 
+
+
+
+function petComment(comment)  {
+var randomNumber = Math.floor(Math.random() * comment.length);
+
+$('.pet-message').text('Godzilla: "' + comment[randomNumber] + '"'); 
+
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------
 
 // Add a variable "pet_info" equal to a object with the name (string), weight (number), and happiness (number) of your pet
 var pet_info = { name: "Godzilla", weight: 164, happiness: 50, charge: 0 }; // changed from string to number
@@ -151,6 +179,7 @@ function clickedTreatButton() {
 
 
   gifPlay('images/godzillaeating.gif');
+  petComment(tComments); 
   checkAndUpdatePetInfoInHtml();
 }
 
@@ -159,9 +188,10 @@ function clickedPlayButton() {
   // Decrease pet weight
 
    pet_info.happiness += 5; 
-   pet_info.weight += -3 
+   pet_info.weight += -3;
 
   gifPlay_play('images/dance-godzilla.gif');
+  petComment(pComments); 
   checkAndUpdatePetInfoInHtml();
 }
 
@@ -169,10 +199,11 @@ function clickedExerciseButton() {
   // Decrease pet happiness
   // Decrease pet weight
 
- pet_info.happiness += -3
- pet_info.weight += -6
+ pet_info.happiness += -3;
+ pet_info.weight += -6;
 
   gifPlay_exercise('images/exercise.gif');
+  petComment(eComments); 
   checkAndUpdatePetInfoInHtml();
 }
 
@@ -180,8 +211,8 @@ function clickedExerciseButton() {
 
 function clickedchargedButton(){
 
-  pet_info.charge += 10
-
+  pet_info.charge += 10;
+   
   //make 100 cap and stay at 100... when it hits 100 make a new button appear and when clicked it fires the beam and resets to 0
 
   if(pet_info.charge >= 100){
@@ -190,6 +221,7 @@ function clickedchargedButton(){
 
   }
 
+  petComment(cComment); 
   checkAndUpdatePetInfoInHtml();
 
 }
@@ -197,9 +229,17 @@ function clickedchargedButton(){
 
 function clickedfireButton() {
  
- 
-  
+ gifPlay_atomic('images/atomicb.gif'); 
 
+ pet_info.charge = 0; 
+
+ $('.fire-button').hide(); 
+
+ updatePetInfoInHtml();
+
+petComment(fComments); 
+
+ 
 }
 
 
@@ -210,7 +250,19 @@ function checkAndUpdatePetInfoInHtml() {
 }
 
 function checkWeightAndHappinessBeforeUpdating() {
-  // Add conditional so if weight is lower than zero. //make not 0 
+ 
+if(pet_info.weight <= 0){
+    pet_info.weight = 0;
+
+}
+
+if(pet_info.happiness <= 0){
+    pet_info.happiness = 0; 
+
+
+}
+
+
 }
 
 // Updates your HTML with the current values in your pet_info object
@@ -219,7 +271,7 @@ function updatePetInfoInHtml() {
   $('.weight').text(pet_info['weight']);
   $('.happiness').text(pet_info['happiness']);
   $('.charge').text(pet_info['charge']);
-
+  
 
 }
 

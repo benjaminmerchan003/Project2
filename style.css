@@ -81,6 +81,8 @@
     color: #fafafa;
   }
 
-  .fire-button{
-    display: none; /* makes the fire button not appear until a javascript function shows it */
-  }
+.pet-message {        /* creates visual for the messages */ 
+  clear: both;        /* puts the message below the floated buttons */ 
+  padding-top: 15px;
+  font-style: italic;
+}
