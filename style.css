@@ -80,3 +80,7 @@
     background-image: linear-gradient(to bottom,rgba(246,246,246,.1)0%,rgba(30,40,53,0)66%);
     color: #fafafa;
   }
+
+  .fire-button{
+    display: none; /* makes the fire button not appear until a javascript function shows it */
+  }

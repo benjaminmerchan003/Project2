@@ -7,8 +7,8 @@ $(function () { // Makes sure that your function is called once all the DOM elem
   $('.treat-button').click(clickedTreatButton);
   $('.play-button').click(clickedPlayButton);
   $('.exercise-button').click(clickedExerciseButton);
-  $('.charge-button').click(clickedChargedButton);
-
+  $('.charge-button').click(clickedchargedButton);
+  $('.fire-button').click(clickedfireButton);
 })
 
 
@@ -178,24 +178,30 @@ function clickedExerciseButton() {
 
 
 
-function clickedChargedButton(){
+function clickedchargedButton(){
 
   pet_info.charge += 10
 
   //make 100 cap and stay at 100... when it hits 100 make a new button appear and when clicked it fires the beam and resets to 0
-  
 
-  if(pet_info.charge == 100){
-
-  gifPlay_atomic('image/atomicb.gif');
-
-  pet_info.charge = 0;
+  if(pet_info.charge >= 100){
+    pet_info.charge = 100;
+    $('.fire-button').show(); 
 
   }
 
   checkAndUpdatePetInfoInHtml();
 
 }
+
+
+function clickedfireButton() {
+ 
+ 
+  
+
+}
+
 
 
 function checkAndUpdatePetInfoInHtml() {
