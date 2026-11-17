@@ -55,15 +55,15 @@ waits for the gif to finish, fades it out, then swaps back to the normal Godzill
 
 var gifPlaying = false; //checks if the gif is playing
 
-function gifPlay(){
+function gifPlay() {
 
 
-  if(gifPlaying) return; //if the gif is playing, let it finish. There is no restart
+  if (gifPlaying) return; //if the gif is playing, let it finish. There is no restart
 
   gifPlaying = true; //says to the compiler that the gif is playing
 
-  $('.pet-image').attr('src','images/godzillaeating.gif'+ '?' + Date.now()); //sets the gif again 
-  $('.pet-image').delay(2880).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+  $('.pet-image').attr('src', 'images/godzillaeating.gif' + '?' + Date.now()); //sets the gif again 
+  $('.pet-image').delay(2880).fadeOut(200, function () { //waits for the gif to finish, then fades it out
 
     $(this).attr('src', 'images/pet.webp'); //swaps back to the pet image
 
@@ -82,15 +82,15 @@ function gifPlay(){
 
 gifPlaying = false; //checks if the gif is playing
 
-function gifPlay_play (){
+function gifPlay_play() {
 
 
-  if(gifPlaying) return; //if the gif is playing, let it finish. There is no restart
+  if (gifPlaying) return; //if the gif is playing, let it finish. There is no restart
 
   gifPlaying = true; //says to the compiler that the gif is playing
 
-  $('.pet-image').attr('src','images/dance-godzilla.gif'+ '?' + Date.now()); //sets the gif again 
-  $('.pet-image').delay(2880).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+  $('.pet-image').attr('src', 'images/dance-godzilla.gif' + '?' + Date.now()); //sets the gif again 
+  $('.pet-image').delay(2880).fadeOut(200, function () { //waits for the gif to finish, then fades it out
 
     $(this).attr('src', 'images/pet.webp'); //swaps back to the pet image
 
@@ -110,17 +110,17 @@ function gifPlay_play (){
 
 gifPlaying = false; //checks if the gif is playing
 
-function gifPlay_exercise(){
+function gifPlay_exercise() {
 
 
-  if(gifPlaying) return; //if the gif is playing, let it finish. There is no restart
+  if (gifPlaying) return; //if the gif is playing, let it finish. There is no restart
 
   gifPlaying = true; //says to the compiler that the gif is playing
 
-  $('.pet-image').attr('src','images/exercise.gif'+ '?' + Date.now()); //sets the gif again 
-  $('.pet-image').delay(4000).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+  $('.pet-image').attr('src', 'images/exercise.gif' + '?' + Date.now()); //sets the gif again 
+  $('.pet-image').delay(4000).fadeOut(200, function () { //waits for the gif to finish, then fades it out
 
-   
+
 
 
     $(this).attr('src', 'images/pet.webp'); //swaps back to the pet image
@@ -136,19 +136,19 @@ function gifPlay_exercise(){
 
 //forth button gif
 
- gifPlaying = false; //checks if the gif is playing
+gifPlaying = false; //checks if the gif is playing
 
-function gifPlay_atomic(){
+function gifPlay_atomic() {
 
 
-  if(gifPlaying) return; //if the gif is playing, let it finish. There is no restart
+  if (gifPlaying) return; //if the gif is playing, let it finish. There is no restart
 
   gifPlaying = true; //says to the compiler that the gif is playing
 
-  $('.pet-image').attr('src','images/atomicb.gif'+ '?' + Date.now()); //sets the gif again 
-  $('.pet-image').delay(2000).fadeOut(200,function(){ //waits for the gif to finish, then fades it out
+  $('.pet-image').attr('src', 'images/atomicb.gif' + '?' + Date.now()); //sets the gif again 
+  $('.pet-image').delay(2000).fadeOut(200, function () { //waits for the gif to finish, then fades it out
 
-    
+
 
 
     $(this).attr('src', 'images/pet.webp'); //swaps back to the pet image
@@ -174,32 +174,32 @@ This section declares arrays with comments for each array. Attached will be a "r
 Array selector researched from https://www.programiz.com/javascript/examples/get-random-item
 Randomizer researched from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 Math floor https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor 
-*/ 
+*/
 
 
-var tComments = ["Yummy! I love buildings!", "A piece of Ghidorah, YUM!", "Wait a minute... this had vegetables","This Tokyo roll was amazing!"]; 
+var tComments = ["Yummy! I love buildings!", "A piece of Ghidorah, YUM!", "Wait a minute... this had vegetables", "This Tokyo roll was amazing!"];
 var pComments = ["I wonder if Minilla wants to play with me", "How far can I throw this car?", "look at my silly dance!", "I should attack japan again..."];
 var eComments = ["3 million and one push up..... 3 million and 2..", "I gotta get stronger than King Kong...", "a light 3 swims around the world for today", "I hope I can spar with Jet Jaguar today"];
 var cComment = ["Charging Atomic Breath ROOOOAR"]; // no selection for this var
-var fComments =  ["ROOOOOOOOOOOOOOOOOOOAAAAAAR *BLAST*", "BOOOOOOOOOOOOOOOOOOOOOOOOOM", "*VAPORIZES EVERYTHING*", "FOOOOOOOOOOOOOOOOOOOOSH"]; 
+var fComments = ["ROOOOOOOOOOOOOOOOOOOAAAAAAR *BLAST*", "BOOOOOOOOOOOOOOOOOOOOOOOOOM", "*VAPORIZES EVERYTHING*", "FOOOOOOOOOOOOOOOOOOOOSH"];
 
 
 //Math
-function petComment(comment)  { /*function occurs when ran in section function. comment is a parameter for the specific message array that will be played.
+function petComment(comment) { /*function occurs when ran in section function. comment is a parameter for the specific message array that will be played.
  
 like petComment(tcomment) */
 
-var randomNumber = Math.floor(Math.random() * comment.length);
+  var randomNumber = Math.floor(Math.random() * comment.length);
 
-/* declares randomNumber to be equal to mathfloor
-, which rounds down the math inside the parentheses. By rounding down, the math can equal 
-a comment location in the comment arrays, running the comment on the html side. 
+  /* declares randomNumber to be equal to mathfloor
+  , which rounds down the math inside the parentheses. By rounding down, the math can equal 
+  a comment location in the comment arrays, running the comment on the html side. 
+  
+  indepth: Math.random gives a random decimal from 0 up to 1(not including 1), it is then multiplied by the amount of comments in the array (.length),
+  Math.floor rounds that number (lets say 2.3) down so it is 2. randomNumber = 2. The compiler then looks at the array and grabs array comment[2]
+  and outputs it */
 
-indepth: Math.random gives a random decimal from 0 up to 1(not including 1), it is then multiplied by the amount of comments in the array (.length),
-Math.floor rounds that number (lets say 2.3) down so it is 2. randomNumber = 2. The compiler then looks at the array and grabs array comment[2]
-and outputs it */
-
-$('.pet-message').text('Godzilla: "' + comment[randomNumber] + '"'); 
+  $('.pet-message').text('Godzilla: "' + comment[randomNumber] + '"');
 
 }
 
@@ -228,11 +228,11 @@ function clickedPlayButton() {
   // Increase pet happiness
   // Decrease pet weight
 
-   pet_info.happiness += 5; 
-   pet_info.weight += -3;
+  pet_info.happiness += 5;
+  pet_info.weight += -3;
 
   gifPlay_play();
-  petComment(pComments); 
+  petComment(pComments);
   checkAndUpdatePetInfoInHtml();
 }
 
@@ -240,48 +240,48 @@ function clickedExerciseButton() {
   // Decrease pet happiness
   // Decrease pet weight
 
- pet_info.happiness += -3;
- pet_info.weight += -6;
+  pet_info.happiness += -3;
+  pet_info.weight += -6;
 
   gifPlay_exercise();
-  petComment(eComments); 
+  petComment(eComments);
   checkAndUpdatePetInfoInHtml();
 }
 
 
 
-function clickedchargedButton(){
+function clickedchargedButton() {
 
   pet_info.charge += 10; //increments charge by 10 
-   
 
-  if(pet_info.charge >= 100){
+
+  if (pet_info.charge >= 100) {
     pet_info.charge = 100;
-    $('.fire-button').show(); 
+    $('.fire-button').show();
 
     //if statement: If godzilla's charge is above or equal to 100, cap the charge at 100, then show a hidden button
 
   }
 
-  petComment(cComment); 
+  petComment(cComment);
   checkAndUpdatePetInfoInHtml();
 
 }
 
 
 function clickedfireButton() { //function for the hidden charge/fire button
-  
- gifPlay_atomic(); //plays gif when clicked
 
- pet_info.charge = 0; //resets godzillas charge to 0 internally and on the html side
+  gifPlay_atomic(); //plays gif when clicked
 
- $('.fire-button').hide();  //hides the fire button(so it cannot be clicked until 100% charge)
+  pet_info.charge = 0; //resets godzillas charge to 0 internally and on the html side
 
- updatePetInfoInHtml(); //updates html 
+  $('.fire-button').hide();  //hides the fire button(so it cannot be clicked until 100% charge)
 
-petComment(fComments); //plays a random comment. 
+  updatePetInfoInHtml(); //updates html 
 
- 
+  petComment(fComments); //plays a random comment. 
+
+
 }
 
 
@@ -292,17 +292,17 @@ function checkAndUpdatePetInfoInHtml() {
 }
 
 function checkWeightAndHappinessBeforeUpdating() {
- 
-if(pet_info.weight <= 0){ // if weight is below or equal to 0, cap the counter at 0. 
+
+  if (pet_info.weight <= 0) { // if weight is below or equal to 0, cap the counter at 0. 
     pet_info.weight = 0;
 
-}
+  }
 
-if(pet_info.happiness <= 0){ // if happiness is below or equal to 0, cap the counter at 0. 
-    pet_info.happiness = 0; 
+  if (pet_info.happiness <= 0) { // if happiness is below or equal to 0, cap the counter at 0. 
+    pet_info.happiness = 0;
 
 
-}
+  }
 
 
 }
@@ -313,7 +313,7 @@ function updatePetInfoInHtml() {
   $('.weight').text(pet_info['weight']);
   $('.happiness').text(pet_info['happiness']);
   $('.charge').text(pet_info['charge']);
-  
+
 
 }
 
